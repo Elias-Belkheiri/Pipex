@@ -1,39 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   main_pipex.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/06 19:16:46 by ebelkhei          #+#    #+#             */
-/*   Updated: 2022/12/27 15:28:16 by ebelkhei         ###   ########.fr       */
+/*   Created: 2022/12/16 21:27:58 by ebelkhei          #+#    #+#             */
+/*   Updated: 2023/01/04 12:50:48 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+int	main(int argc, char *argv[], char *env[])
 {
-	size_t			i;
-	unsigned char	*str1;
-	unsigned char	*str2;
+	int		io[2];
+	int		exit_status;
 
-	i = 0;
-	str1 = (unsigned char *)s1;
-	str2 = (unsigned char *)s2;
-	if (n == 0 || !str2 || !str1)
-		return (0);
-	while (i < n && s1[i] && s2[i])
+	if (argc != 5)
 	{
-		if (str1[i] != str2[i])
-			break ;
-		i++;
-	}	
-	if (i >= n)
-		i--;
-	if (str1[i] > str2[i])
-		return (1);
-	else if (str1[i] < str2[i])
-		return (-1);
-	return (0);
+		write(2, "WRONG NUMBER OF ARGS\n", ft_strlen("WRONG NUMBER OF ARGS\n"));
+		exit(EXIT_FAILURE);
+	}
+	exit_status = pipex(argc, argv, env, io);
+	close(io[0]);
+	close(io[1]);
+	exit(exit_status);
 }

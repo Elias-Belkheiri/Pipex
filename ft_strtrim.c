@@ -6,11 +6,11 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 21:02:19 by ebelkhei          #+#    #+#             */
-/*   Updated: 2022/10/22 10:48:43 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2022/12/27 15:28:19 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "pipex.h"
 
 static int	ft_check(char *trim, char a)
 {

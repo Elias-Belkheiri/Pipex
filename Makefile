@@ -1,30 +1,29 @@
-NAME		= 	pipex
+NAME				= 	pipex
 
-LIB			=	libpipe.a
+NAME_BONUS			= 	pipex_bonus
 
-SRCS		=	ft_split.c ft_strtrim.c ft_strlcpy.c ft_substr.c ft_strncmp.c ft_strlen.c ft_strdup.c ft_strjoin.c ft_split_pipex.c
+SRCS				=	main_pipex.c pipex.c get_next_line.c get_next_line_utils.c ft_split.c ft_strtrim.c ft_strlcpy.c ft_substr.c ft_strncmp.c ft_strlen.c ft_strdup.c ft_strjoin.c  tools.c get_paths.c check_args.c
 
-OBJS		= 	$(SRCS:.c=.o)
+SRCS_BONUS			=	main_bonus.c pipex.c get_next_line.c get_next_line_utils.c ft_split.c ft_strtrim.c ft_strlcpy.c ft_substr.c ft_strncmp.c ft_strlen.c ft_strdup.c ft_strjoin.c  tools.c get_paths.c check_args.c
 
-CC			= 	cc
+CC					= 	cc
 
-CFLAGS		=	-Wall -Wextra -Werror
+CFLAGS				=	-Wall -Wextra -Werror
 
-all			: ${NAME}
+all					:  ${NAME}
 
-${NAME}		: ${LIB}
-				${CC} ${CFLAGS} pipex.c ${LIB} -o ${NAME} -fsanitize=address
+bonus				:  ${NAME_BONUS}
 
-${LIB}		: ${OBJS}
-				ar -rc ${LIB} ${OBJS}
+${NAME}				:  ${SRCS}
+						${CC} ${CFLAGS} ${SRCS} -o ${NAME}
 
-${OBJS}		: ${SRCS}
-				${CC}  ${CFLAGS} -c ${SRCS}
+${NAME_BONUS}		:  ${SRCS_BONUS}
+						${CC} ${CFLAGS} ${SRCS_BONUS} -o ${NAME_BONUS}
 
-clean		:
-				rm -f $(OBJS)
+clean				:
+						rm -f ${NAME}
 
-fclean		: clean
-				rm -f ${LIB} 
+fclean				:  clean
+						rm -f ${NAME_BONUS}
 
-re 			: 	fclean all 
+re 					: 	fclean all 

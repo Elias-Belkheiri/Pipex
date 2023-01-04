@@ -6,11 +6,11 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 19:10:39 by ebelkhei          #+#    #+#             */
-/*   Updated: 2022/10/22 07:43:56 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2022/12/27 15:27:05 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "pipex.h"
 
 char	*ft_strdup(const char *ptr)
 {

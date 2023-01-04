@@ -6,11 +6,11 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 18:55:00 by ebelkhei          #+#    #+#             */
-/*   Updated: 2022/10/22 18:14:50 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2022/12/27 15:28:01 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "pipex.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {

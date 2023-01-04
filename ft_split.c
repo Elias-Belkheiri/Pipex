@@ -6,18 +6,11 @@
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 10:52:03 by ebelkhei          #+#    #+#             */
-/*   Updated: 2022/12/15 11:34:16 by ebelkhei         ###   ########.fr       */
+/*   Updated: 2022/12/27 15:27:44 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-static void	ft_free_all_mfs(char **p)
-{
-	while (*p)
-		free(p++);
-	free(p);
-}
+#include "pipex.h"
 
 static int	ft_count_words(char *str, char c)
 {

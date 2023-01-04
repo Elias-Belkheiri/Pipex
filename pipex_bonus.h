@@ -1,33 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   pipex_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/06 10:55:59 by ebelkhei          #+#    #+#             */
-/*   Updated: 2022/12/27 15:28:09 by ebelkhei         ###   ########.fr       */
+/*   Created: 2022/12/12 14:55:21 by ebelkhei          #+#    #+#             */
+/*   Updated: 2023/01/03 21:15:45 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#ifndef PIPEX_BONUS_H
+# define PIPEX_BONUS_H
 
-int	ft_strlcpy(char *dst, const char *src, int dstsize)
-{
-	size_t	i;
-	char	*s;
+# include "pipex.h"
 
-	i = 0;
-	s = (char *)src;
-	if (!dstsize)
-		return (ft_strlen(s));
-	if (dstsize <= 0)
-		dstsize = ft_strlen(s) + 1;
-	while (dstsize-- > 1 && src[i])
-	{
-		dst[i] = src[i];
-		i++;
-	}
-	dst[i] = '\0';
-	return (ft_strlen(s));
-}
+#endif

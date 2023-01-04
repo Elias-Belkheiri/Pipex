@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   pipex_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/06 10:55:59 by ebelkhei          #+#    #+#             */
-/*   Updated: 2022/12/27 15:28:09 by ebelkhei         ###   ########.fr       */
+/*   Created: 2022/12/30 10:20:29 by ebelkhei          #+#    #+#             */
+/*   Updated: 2023/01/03 16:09:49 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "pipex_bonus.h"
 
-int	ft_strlcpy(char *dst, const char *src, int dstsize)
+int	main(int argc, char *argv[], char *env[])
 {
-	size_t	i;
-	char	*s;
+	int		io[2];
 
-	i = 0;
-	s = (char *)src;
-	if (!dstsize)
-		return (ft_strlen(s));
-	if (dstsize <= 0)
-		dstsize = ft_strlen(s) + 1;
-	while (dstsize-- > 1 && src[i])
+	if (argc < 6)
 	{
-		dst[i] = src[i];
-		i++;
+		write(2, "NOT ENOUGH ARGS\n", ft_strlen("NOT ENOUGH ARGS\n"));
+		exit(EXIT_FAILURE);
 	}
-	dst[i] = '\0';
-	return (ft_strlen(s));
+	pipex(argc, argv, env, io);
+	close(io[0]);
+	close(io[1]);
+	unlink("/tmp/tmpfile");
 }

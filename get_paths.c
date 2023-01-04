@@ -1,39 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   get_paths.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebelkhei <ebelkhei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/06 19:16:46 by ebelkhei          #+#    #+#             */
-/*   Updated: 2022/12/27 15:28:16 by ebelkhei         ###   ########.fr       */
+/*   Created: 2022/12/16 10:57:38 by ebelkhei          #+#    #+#             */
+/*   Updated: 2023/01/04 11:41:01 by ebelkhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+char	**get_paths(char **env)
 {
-	size_t			i;
-	unsigned char	*str1;
-	unsigned char	*str2;
+	int	i;
 
 	i = 0;
-	str1 = (unsigned char *)s1;
-	str2 = (unsigned char *)s2;
-	if (n == 0 || !str2 || !str1)
-		return (0);
-	while (i < n && s1[i] && s2[i])
-	{
-		if (str1[i] != str2[i])
-			break ;
+	if (!env || !*env)
+		return (NULL);
+	while (ft_strncmp("PATH", env[i], 4))
 		i++;
-	}	
-	if (i >= n)
-		i--;
-	if (str1[i] > str2[i])
-		return (1);
-	else if (str1[i] < str2[i])
-		return (-1);
-	return (0);
+	return (ft_split(env[i] + 5, ':'));
 }
